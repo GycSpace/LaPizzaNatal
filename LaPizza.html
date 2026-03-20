@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LaPizzaNatal</title>
+
+<style>
+
+body{
+margin:0;
+font-family: Arial, sans-serif;
+background:#323232;
+color:white;
+}
+
+/* HEADER */
+
+header{
+background:#c62828;
+padding:15px;
+text-align:center;
+}
+
+/* BANNER */
+
+.banner{
+background:#1a1a1a;
+height:250px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.banner h2{
+font-size:32px;
+margin:0;
+}
+
+/* TEXTO EXTRA */
+
+.info{
+text-align:center;
+color:#ccc;
+margin-top:10px;
+}
+
+/* CONTAINER */
+
+.container{
+padding:30px;
+max-width:1100px;
+margin:auto;
+}
+
+/* TITULOS */
+
+h2{
+border-left:5px solid #c62828;
+padding-left:10px;
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+/* CARD SEM IMAGEM */
+
+.card{
+background:#1c1c1c;
+border-radius:12px;
+padding:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.5);
+transition:0.3s;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+border-top:4px solid #c62828;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+/* TITULO DO ITEM */
+
+.card h3{
+margin-top:0;
+}
+
+/* PREÇO */
+
+.preco{
+color:#25d366;
+font-size:22px;
+font-weight:bold;
+margin:10px 0;
+}
+
+/* BOTÃO */
+
+.botao{
+margin-top:10px;
+padding:10px;
+background:#25d366;
+text-align:center;
+border-radius:8px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+transition:0.3s;
+}
+
+.botao:hover{
+background:#1ebe5d;
+}
+
+/* COMBOS */
+
+.combo{
+background:#c62828;
+padding:15px;
+border-radius:12px;
+margin-bottom:20px;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25d366;
+padding:15px;
+border-radius:50%;
+text-decoration:none;
+font-size:20px;
+}
+
+/* FOOTER */
+
+footer{
+background:#000;
+padding:20px;
+text-align:center;
+margin-top:30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🍕 LaPizzaNatal</h1>
+<p>Delivery rápido na ZN de Natal RN</p>
+</header>
+
+<div class="banner">
+<h2>Peça sua pizza agora</h2>
+<p>Entrega rápida e prática pelo WhatsApp</p>
+</div>
+
+<p class="info">
+✔ Pedido rápido • ✔ Entrega ágil • ✔ Qualidade garantida
+</p>
+
+<div class="container">
+
+<h2>🔥 Combos</h2>
+
+<div class="combo">
+<h3>Combo Casal ❤️</h3>
+<p>1 Pizza grande + 1 refrigerante de 1L</p>
+<p class="preco">R$ 59,90</p>
+<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
+</div>
+
+<div class="combo">
+<h3>Combo Família 👨‍👩‍👧‍👦</h3>
+<p>2 Pizzas grandes + 2 refrigerantes de 1L</p>
+<p class="preco">R$ 99,90</p>
+<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
+</div>
+
+<h2>🍕 Pizzas</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Calabresa</h3>
+<p>Molho, queijo e calabresa</p>
+<p class="preco">R$ 55,00</p>
+<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
+</div>
+
+<div class="card">
+<h3>Mussarela</h3>
+<p>Molho e muito queijo</p>
+<p class="preco">R$ 50,00</p>
+<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
+</div>
+
+<div class="card">
+<h3>Frango com Catupiry</h3>
+<p>Frango desfiado</p>
+<p class="preco">R$ 58,00</p>
+<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
+</div>
+
+<div class="card">
+<h3>Carne de Sol</h3>
+<p>Especial da casa</p>
+<p class="preco">R$ 56,00</p>
+<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
+</div>
+
+<div class="card">
+<h3>Portuguesa</h3>
+<p>Presunto, ovo e azeitona</p>
+<p class="preco">R$ 52,00</p>
+<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
+</div>
+
+<div class="card">
+<h3>Quatro Queijos</h3>
+<p>Mussarela, cheddar, parmesão</p>
+<p class="preco">R$ 52,00</p>
+<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
+</div>
+
+<div class="card">
+<h3>Bacon</h3>
+<p>Mussarela e bacon crocante</p>
+<p class="preco">R$ 52,00</p>
+<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
+</div>
+
+</div>
+
+<h2>🥤 Bebidas</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Coca-Cola 1L</h3>
+<p class="preco">R$ 12,00</p>
+<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
+</div>
+
+<div class="card">
+<h3>Guaraná 1L</h3>
+<p class="preco">R$ 10,00</p>
+<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
+</div>
+
+<div class="card">
+<h3>Pepsi 1L</h3>
+<p class="preco">R$ 10,00</p>
+<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
+</div>
+
+</div>
+
+</div>
+
+<footer>
+<p>📍 Av. Senhor do Bonfim, 4135 – Natal RN</p>
+<p>Instagram: @lapizzanatal</p>
+<p>WhatsApp: (84) 99899-2266</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/5584998992266">📲</a>
+
+</body>
+</html>
