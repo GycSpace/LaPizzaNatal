@@ -1,282 +1,632 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LaPizzaNatal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaPizzaNatal</title>
 
-<style>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0d7f24;
+            color: white;
+        }
 
-body{
-margin:0;
-font-family: Arial, sans-serif;
-background:#323232;
-color:white;
-}
+        header {
+            background: #8d0303;
+            padding: 15px;
+            text-align: center;
+        }
 
-/* HEADER */
+        .banner {
+            background: #1a1a1a;
+            height: 130px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
 
-header{
-background:#c62828;
-padding:15px;
-text-align:center;
-}
+        .banner h2 {
+            font-size: 32px;
+            margin: 0;
+        }
 
-/* BANNER */
+        .info {
+            text-align: center;
+            color: #ccc;
+            margin-top: 10px;
+        }
 
-.banner{
-background:#1a1a1a;
-height:250px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-}
+        .container {
+            padding: 30px;
+            max-width: 1100px;
+            margin: auto;
+        }
 
-.banner h2{
-font-size:32px;
-margin:0;
-}
+        h2 {
+            border-left: 5px solid #890404;
+            padding-left: 10px;
+            margin-top: 40px;
+        }
 
-/* TEXTO EXTRA */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
 
-.info{
-text-align:center;
-color:#ccc;
-margin-top:10px;
-}
+        .card {
+            background: #1c1c1c;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            border-top: 4px solid #6a0303;
+        }
 
-/* CONTAINER */
+        .card:hover {
+            transform: translateY(-5px);
+        }
 
-.container{
-padding:30px;
-max-width:1100px;
-margin:auto;
-}
+        .card h3 {
+            margin: 0 0 5px 0;
+            font-size: 20px;
+        }
 
-/* TITULOS */
+        .ingredientes {
+            font-size: 14px;
+            color: #bbb;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
 
-h2{
-border-left:5px solid #c62828;
-padding-left:10px;
-}
+        .preco {
+            color: #2fe967;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1.6;
+            margin-top: 5px;
+        }
 
-/* GRID */
+        .botao {
+            margin-top: auto;
+            padding: 12px;
+            background: #10982b;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: 0.3s;
+        }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
+        .botao:hover {
+            background: #1ebe5d;
+        }
 
-/* CARD SEM IMAGEM */
+        .combo {
+            background: #a80202;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
 
-.card{
-background:#1c1c1c;
-border-radius:12px;
-padding:20px;
-box-shadow:0 5px 15px rgba(0,0,0,0.5);
-transition:0.3s;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-border-top:4px solid #c62828;
-}
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            padding: 15px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 22px;
+        }
 
-.card:hover{
-transform:translateY(-5px);
-}
-
-/* TITULO DO ITEM */
-
-.card h3{
-margin-top:0;
-}
-
-/* PREÇO */
-
-.preco{
-color:#25d366;
-font-size:22px;
-font-weight:bold;
-margin:10px 0;
-}
-
-/* BOTÃO */
-
-.botao{
-margin-top:10px;
-padding:10px;
-background:#25d366;
-text-align:center;
-border-radius:8px;
-text-decoration:none;
-color:white;
-font-weight:bold;
-transition:0.3s;
-}
-
-.botao:hover{
-background:#1ebe5d;
-}
-
-/* COMBOS */
-
-.combo{
-background:#c62828;
-padding:15px;
-border-radius:12px;
-margin-bottom:20px;
-}
-
-/* WHATSAPP */
-
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25d366;
-padding:15px;
-border-radius:50%;
-text-decoration:none;
-font-size:20px;
-}
-
-/* FOOTER */
-
-footer{
-background:#000;
-padding:20px;
-text-align:center;
-margin-top:30px;
-}
-
-</style>
+        footer {
+            background: #000;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-<h1>🍕 LaPizzaNatal</h1>
-<p>Delivery rápido na ZN de Natal RN</p>
-</header>
+    <header>
+        <h1>🍕 LaPizzaNatal</h1>
+        <p>Delivery rápido na Zona Norte de Natal RN</p>
+    </header>
 
-<div class="banner">
-<h2>Peça sua pizza agora</h2>
-<p>Entrega rápida e prática pelo WhatsApp</p>
-</div>
+    <div class="banner">
+        <h2>Peça sua pizza agora</h2>
+        <p>Entrega rápida e prática pelo WhatsApp</p>
+    </div>
 
-<p class="info">
-✔ Pedido rápido • ✔ Entrega ágil • ✔ Qualidade garantida
-</p>
+    <div class="container">
 
-<div class="container">
+        <h2>🔥 Combos</h2>
 
-<h2>🔥 Combos</h2>
+        <div class="combo">
+            <h3>Combo Casal ❤️</h3>
+            <p>1 Pizza grande + 1 refrigerante de 1L</p>
+            <p class="preco">R$ 59,90</p>
+            <a class="botao" href="https://wa.me/5584998992266">Pedir no WhatsApp</a>
+        </div>
 
-<div class="combo">
-<h3>Combo Casal ❤️</h3>
-<p>1 Pizza grande + 1 refrigerante de 1L</p>
-<p class="preco">R$ 59,90</p>
-<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
-</div>
+        <div class="combo">
+            <h3>Combo Família 👨‍👩‍👧‍👦</h3>
+            <p>2 Pizzas grandes + 2 refrigerantes de 1L</p>
+            <p class="preco">R$ 99,90</p>
+            <a class="botao" href="https://wa.me/5584998992266">Pedir no WhatsApp</a>
+        </div>
 
-<div class="combo">
-<h3>Combo Família 👨‍👩‍👧‍👦</h3>
-<p>2 Pizzas grandes + 2 refrigerantes de 1L</p>
-<p class="preco">R$ 99,90</p>
-<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
-</div>
 
-<h2>🍕 Pizzas</h2>
+        <h2>🍕 Pizzas Salgadas</h2>
 
-<div class="grid">
+        <div class="grid">
 
-<div class="card">
-<h3>Calabresa</h3>
-<p>Molho, queijo e calabresa</p>
-<p class="preco">R$ 55,00</p>
-<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
-</div>
+            <div class="card">
+                <h3>A Moda da Casa</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, presunto, ervilha, tomate e orégano.</p>
+                <p class="preco">
+                    P • R$ 36,90<br>
+                    M • R$ 47,90<br>
+                    G • R$ 49,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
 
-<div class="card">
-<h3>Mussarela</h3>
-<p>Molho e muito queijo</p>
-<p class="preco">R$ 50,00</p>
-<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
-</div>
+            <div class="card">
+                <h3>Atum</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, atum, cebola e orégano.</p>
+                <p class="preco">
+                    P • R$ 45,90<br>
+                    M • R$ 50,90<br>
+                    G • R$ 52,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
 
-<div class="card">
-<h3>Frango com Catupiry</h3>
-<p>Frango desfiado</p>
-<p class="preco">R$ 58,00</p>
-<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
-</div>
+            <div class="card">
+                <h3>Bacon</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, bacon crocante e orégano.</p>
+                <p class="preco">
+                    P • R$ 42,90<br>
+                    M • R$ 47,90<br>
+                    G • R$ 49,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
 
-<div class="card">
-<h3>Carne de Sol</h3>
-<p>Especial da casa</p>
-<p class="preco">R$ 56,00</p>
-<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
-</div>
+            <div class="card">
+                <h3>Bacon com Cheddar</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, bacon crocante, cheddar cremoso e orégano.</p>
+                <p class="preco">
+                    P • R$ 47,90<br>
+                    M • R$ 51,90<br>
+                    G • R$ 53,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
 
-<div class="card">
-<h3>Portuguesa</h3>
-<p>Presunto, ovo e azeitona</p>
-<p class="preco">R$ 52,00</p>
-<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
-</div>
+            <div class="card">
+                <h3>Calabresa</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, calabresa, cebola e orégano.</p>
+                <p class="preco">
+                    P • R$ 42,90<br>
+                    M • R$ 47,90<br>
+                    G • R$ 49,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
 
-<div class="card">
-<h3>Quatro Queijos</h3>
-<p>Mussarela, cheddar, parmesão</p>
-<p class="preco">R$ 52,00</p>
-<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
-</div>
+            <div class="card">
+                <h3>Camarão</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, camarão refogado no alho e óleo, cebola, tomate e
+                    orégano.</p>
+                <p class="preco">
+                    P • R$ 57,90<br>
+                    M • R$ 62,90<br>
+                    G • R$ 64,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
 
-<div class="card">
-<h3>Bacon</h3>
-<p>Mussarela e bacon crocante</p>
-<p class="preco">R$ 52,00</p>
-<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
-</div>
+            <div class="card">
+                <h3>Carne de Sol</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, carne de sol desfiada, cebola e orégano.</p>
+                <p class="preco">
+                    P • R$ 48,90<br>
+                    M • R$ 53,90<br>
+                    G • R$ 55,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
 
-</div>
+            <div class="card">
+                <h3>Carne de Sol com Cream Cheese</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, carne de sol desfiada, cream cheese e orégano.</p>
+                <p class="preco">
+                    P • R$ 49,90<br>
+                    M • R$ 55,90<br>
+                    G • R$ 57,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
 
-<h2>🥤 Bebidas</h2>
+            <div class="card">
+                <h3>Frango com Bacon</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, frango desfiado, bacon crocante e orégano.</p>
+                <p class="preco">
+                    P • R$ 47,90<br>
+                    M • R$ 52,90<br>
+                    G • R$ 55,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
 
-<div class="grid">
+            <div class="card">
+                <h3>Frango com Cheddar</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, frango desfiado, cheddar cremoso e orégano.</p>
+                <p class="preco">
+                    P • R$ 47,90<br>
+                    M • R$ 52,90<br>
+                    G • R$ 55,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
 
-<div class="card">
-<h3>Coca-Cola 1L</h3>
-<p class="preco">R$ 12,00</p>
-<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
-</div>
+            <div class="card">
+                <h3>Frango com Milho</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, frango desfiado, milho verde e orégano.</p>
+                <p class="preco">
+                    P • R$ 47,90<br>
+                    M • R$ 52,90<br>
+                    G • R$ 55,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
 
-<div class="card">
-<h3>Guaraná 1L</h3>
-<p class="preco">R$ 10,00</p>
-<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
-</div>
+            <div class="card">
+                <h3>Gorgonzola</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, queijo gorgonzola e manjericão.</p>
+                <p class="preco">
+                    P • R$ 47,90<br>
+                    M • R$ 52,90<br>
+                    G • R$ 55,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
 
-<div class="card">
-<h3>Pepsi 1L</h3>
-<p class="preco">R$ 10,00</p>
-<a class="botao" href="https://wa.me/5584998992266?text=Olá,+boa+noite!">Pedir</a>
-</div>
+            <div class="card">
+                <h3>Italiana</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, presunto, peperoni, salame e orégano.</p>
+                <p class="preco">
+                    P • R$ 52,90<br>
+                    M • R$ 57,90<br>
+                    G • R$ 59,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
 
-</div>
+            <div class="card">
+                <h3>Lombo com Catupiry</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, lombo canadense, catupiry e orégano.</p>
+                <p class="preco">
+                    P • R$ 52,90<br>
+                    M • R$ 57,90<br>
+                    G • R$ 59,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
 
-</div>
+            <div class="card">
+                <h3>Lombinho</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, lombo canadense, cebola e orégano.</p>
+                <p class="preco">
+                    P • R$ 48,90<br>
+                    M • R$ 53,90<br>
+                    G • R$ 55,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
 
-<footer>
-<p>📍 Av. Senhor do Bonfim, 4135 – Natal RN</p>
-<p>Instagram: @lapizzanatal</p>
-<p>WhatsApp: (84) 99899-2266</p>
-</footer>
+            <div class="card">
+                <h3>Marguerita</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, tomate fresco e manjericão.</p>
+                <p class="preco">
+                    P • R$ 42,90<br>
+                    M • R$ 47,90<br>
+                    G • R$ 49,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
 
-<a class="whatsapp" href="https://wa.me/5584998992266">📲</a>
+            <div class="card">
+                <h3>Mista</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, presunto e orégano.</p>
+                <p class="preco">
+                    P • R$ 42,90<br>
+                    M • R$ 47,90<br>
+                    G • R$ 49,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
+
+            <div class="card">
+                <h3>Mista 2</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, calabresa e orégano.</p>
+                <p class="preco">
+                    P • R$ 42,90<br>
+                    M • R$ 47,90<br>
+                    G • R$ 49,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
+
+            <div class="card">
+                <h3>Mussarela</h3>
+                <p class="ingredientes">Molho de tomate, mussarela e orégano.</p>
+                <p class="preco">
+                    P • R$ 42,90<br>
+                    M • R$ 47,90<br>
+                    G • R$ 49,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
+
+            <div class="card">
+                <h3>Napolitana</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, tomate fresco, parmesão e orégano.</p>
+                <p class="preco">
+                    P • R$ 42,90<br>
+                    M • R$ 47,90<br>
+                    G • R$ 49,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
+
+            <div class="card">
+                <h3>Peperoni</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, pepperoni e orégano.</p>
+                <p class="preco">
+                    P • R$ 48,90<br>
+                    M • R$ 53,90<br>
+                    G • R$ 55,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
+
+            <div class="card">
+                <h3>Portuguesa</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, presunto, ovo cozido, cebola e orégano.</p>
+                <p class="preco">
+                    P • R$ 42,90<br>
+                    M • R$ 47,90<br>
+                    G • R$ 49,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
+
+            <div class="card">
+                <h3>Quase Tudo</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, frango, presunto, calabresa, bacon, milho, cebola e
+                    orégano.</p>
+                <p class="preco">
+                    P • R$ 48,90<br>
+                    M • R$ 53,90<br>
+                    G • R$ 55,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
+
+            <div class="card">
+                <h3>Sertaneja</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, carne de sol, cebola, queijo coalho e orégano.</p>
+                <p class="preco">
+                    P • R$ 52,90<br>
+                    M • R$ 57,90<br>
+                    G • R$ 59,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
+
+            <div class="card">
+                <h3>Siciliana</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, champignon, bacon e orégano.</p>
+                <p class="preco">
+                    P • R$ 45,90<br>
+                    M • R$ 50,90<br>
+                    G • R$ 52,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
+
+            <div class="card">
+                <h3>Toscana</h3>
+                <p class="ingredientes">Molho de tomate, mussarela, Calabresa, presunto e orégano.</p>
+                <p class="preco">
+                    P • R$ 48,90<br>
+                    M • R$ 53,90<br>
+                    G • R$ 55,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
+
+        </div>
+
+        <h2>🍫 Pizzas Doces</h2>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>Banana com Canela</h3>
+                <p class="ingredientes">Queijo mussarela, banana, açúcar, canela e leite condensado.</p>
+                <p class="preco">
+                    P • R$ 42,90<br>
+                    M • R$ 47,90<br>
+                    G • R$ 49,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
+
+            <div class="card">
+                <h3>Banana com Chocolate</h3>
+                <p class="ingredientes">Queijo mussarela, banana e chocolate ao leite.</p>
+                <p class="preco">
+                    P • R$ 47,90<br>
+                    M • R$ 52,90<br>
+                    G • R$ 55,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
+
+            <div class="card">
+                <h3>Banana com Doce de Leite</h3>
+                <p class="ingredientes">Queijo mussarela, banana e doce de leite.</p>
+                <p class="preco">
+                    P • R$ 47,90<br>
+                    M • R$ 52,90<br>
+                    G • R$ 55,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
+
+            <div class="card">
+                <h3>Banana Nevada</h3>
+                <p class="ingredientes">Queijo mussarela, banana, chocolate brando e canela.</p>
+                <p class="preco">
+                    P • R$ 47,90<br>
+                    M • R$ 52,90<br>
+                    G • R$ 55,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
+
+            <div class="card">
+                <h3>Beijinho</h3>
+                <p class="ingredientes">Queijo mussarela, chocolate ao leite e coco ralado.</p>
+                <p class="preco">
+                    P • R$ 47,90<br>
+                    M • R$ 52,90<br>
+                    G • R$ 55,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
+
+            <div class="card">
+                <h3>Chocolate ao Leite</h3>
+                <p class="ingredientes">Queijo mussarela e Chocolate ao leite cremoso</p>
+                <p class="preco">
+                    P • R$ 48,90<br>
+                    M • R$ 53,90<br>
+                    G • R$ 55,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
+
+            <div class="card">
+                <h3>Dois Amores</h3>
+                <p class="ingredientes">Queijo mussarela, chocolate ao leite e chocolate branco.</p>
+                <p class="preco">
+                    P • R$ 48,90<br>
+                    M • R$ 53,90<br>
+                    G • R$ 55,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
+
+            <div class="card">
+                <h3>Romeu e Julieta</h3>
+                <p class="ingredientes">Queijo mussarela e goiabada</p>
+                <p class="preco">
+                    P • R$ 48,90<br>
+                    M • R$ 53,90<br>
+                    G • R$ 55,90
+                </p>
+                <a class="botao" href="https://wa.me/5584998992266?text=Olá,+Boa+noite!">Pedir</a>
+            </div>
+
+        </div>
+
+        <h2> Bordas</h2>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>Borda de Catupiry</h3>
+                <p class="preco">R$ 10,00</p>
+                <a class="botao" href="https://wa.me/5584998992266">Pedir</a>
+            </div>
+
+            <div class="card">
+                <h3>Borda de Cheddar</h3>
+                <p class="preco">R$ 10,00</p>
+                <a class="botao" href="https://wa.me/5584998992266">Pedir</a>
+            </div>
+
+            <div class="card">
+                <h3>Borda de Cream Cheese</h3>
+                <p class="preco">R$ 10,00</p>
+                <a class="botao" href="https://wa.me/5584998992266">Pedir</a>
+            </div>
+
+            <div class="card">
+                <h3>Borda de Chocolate</h3>
+                <p class="preco">R$ 12,00</p>
+                <a class="botao" href="https://wa.me/5584998992266">Pedir</a>
+            </div>
+
+        </div>
+
+        <h2>🥤 Bebidas</h2>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>Coca-Cola 1L</h3>
+                <p class="preco">R$ 12,00</p>
+                <a class="botao" href="https://wa.me/5584998992266">Pedir</a>
+            </div>
+
+            <div class="card">
+                <h3>Guaraná 1L</h3>
+                <p class="preco">R$ 10,00</p>
+                <a class="botao" href="https://wa.me/5584998992266">Pedir</a>
+            </div>
+
+            <div class="card">
+                <h3>Pepsi 1L</h3>
+                <p class="preco">R$ 10,00</p>
+                <a class="botao" href="https://wa.me/5584998992266">Pedir</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    </div>
+
+
+
+    <footer>
+        <p class="info">
+            ⏰ Funcionamento: 18h às 23h • Todos os dias
+        </p>
+        <p>📍 Av. Senhor do Bonfim, 4135 – Natal RN</p>
+        <p>Instagram: @lapizzanatal</p>
+        <p>WhatsApp: (84) 99899-2266</p>
+    </footer>
+
+    <a class="whatsapp" href="https://wa.me/5584998992266">📲</a>
 
 </body>
+
 </html>
